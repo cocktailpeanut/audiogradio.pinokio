@@ -1,0 +1,68 @@
+{
+  "run": [{
+    "method": "shell.start"
+  }, {
+    "method": "shell.enter",
+    "params": {
+      "message": "{{os.platform() === 'win32' ? 'audiocraft\\\\env\\\\Scripts\\\\activate' : 'source audiocraft/env/bin/activate'}}",
+      "on": [{
+        "event": null,
+        "return": true
+      }]
+    }
+  }, {
+    "method": "input",
+    "params": {
+      "title": "Prompt",
+      "type": "notify",
+      "form": [{
+        "key": "prompt1",
+        "title": "prompt 1"
+      }, {
+        "key": "prompt2",
+        "title": "prompt 2"
+      }, {
+        "key": "prompt3",
+        "title": "prompt 3"
+      }]
+    }
+  }, {
+    "method": "self.set",
+    "params": {
+      "prompt.json": {
+        "prompt": [
+          "{{input.prompt1 ? input.prompt1 : ''}}",
+          "{{input.prompt2 ? input.prompt2 : ''}}",
+          "{{input.prompt3 ? input.prompt3 : ''}}"
+        ]
+      }
+    }
+  }, {
+    "method": "shell.enter",
+    "params": {
+      "message": "{{os.platform() === 'win32' ? 'python' : 'python3'}} run.py",
+      "on": [{
+        "event": null,
+        "return": true
+      }]
+    }
+  }, {
+    "method": "browser.open",
+    "params": {
+      "uri": "./0.wav",
+      "target": "_blank"
+    }
+  }, {
+    "method": "browser.open",
+    "params": {
+      "uri": "./1.wav",
+      "target": "_blank"
+    }
+  }, {
+    "method": "browser.open",
+    "params": {
+      "uri": "./2.wav",
+      "target": "_blank"
+    }
+  }]
+}

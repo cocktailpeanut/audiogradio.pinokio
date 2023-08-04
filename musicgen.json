@@ -1,0 +1,41 @@
+{
+  "run": [{
+    "method": "shell.start",
+    "params": {
+      "path": "audiocraft"
+    }
+  }, {
+    "method": "shell.enter",
+    "params": {
+      "message": "{{os.platform() === 'win32' ? 'env\\\\Scripts\\\\activate' : 'source env/bin/activate'}}",
+      "on": [{
+        "event": null,
+        "return": true
+      }]
+    }
+  }, {
+    "method": "shell.enter",
+    "params": {
+      "message": "{{os.platform() === 'win32' ? 'python demos\\\\musicgen_app.py' : 'python3 demos/musicgen_app.py'}}",
+      "on": [{
+        "event": "/(http:\/\/[0-9.:]+)/",
+        "return": "{{event.matches[0][1]}}"
+      }]
+    }
+  }, {
+    "method": "self.set",
+    "params": {
+      "session.json": {
+        "musicgen": "{{input}}"
+      }
+    }
+  }, {
+    "method": "browser.open",
+    "params": {
+      "uri": "{{self.session.musicgen}}",
+      "target": "_blank"
+    }
+  }, {
+    "method": "process.wait"
+  }]
+}

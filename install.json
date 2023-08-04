@@ -1,0 +1,57 @@
+{
+  "run": [{
+    "method": "shell.run",
+    "params": {
+      "message": "git clone https://github.com/cocktailpeanut/audiocraft.git"
+    }
+  }, {
+    "method": "shell.run",
+    "params": {
+      "message": "{{os.platform() === 'win32' ? 'python' : 'python3'}} -m venv env",
+      "path": "audiocraft"
+    }
+  }, {
+    "method": "shell.start",
+    "params": {
+      "path": "audiocraft"
+    }
+  }, {
+    "method": "shell.enter",
+    "params": {
+      "message": "{{os.platform() === 'win32' ? 'env\\\\Scripts\\\\activate' : 'source env/bin/activate'}}",
+      "on": [{
+        "event": null,
+        "return": true
+      }]
+    }
+  }, {
+    "method": "shell.enter",
+    "params": {
+      "message": "pip install 'torch>=2.0' Flask",
+      "on": [{
+        "event": null,
+        "return": true
+      }]
+    }
+  }, {
+    "method": "shell.enter",
+    "params": {
+      "message": "pip install -r {{(new RegExp('amd','i').test(system.graphics().controllers && system.graphics().controllers[0].vendor) ? 'requirements-no-xformers.txt' : 'requirements.txt')}} -e .",
+      "on": [{
+        "event": null,
+        "return": true
+      }]
+    }
+  }, {
+    "method": "input",
+    "params": {
+      "title": "Install Success",
+      "description": "Go back to the dashboard and launch the app!"
+    }
+  }, {
+    "method": "browser.open",
+    "params": {
+      "uri": "/?selected=audiocraft"
+    }
+  }]
+}

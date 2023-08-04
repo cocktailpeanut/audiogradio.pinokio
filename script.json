@@ -1,0 +1,10 @@
+{
+  "run": [{
+    "method": "net",
+    "params": {
+      "url": "http://127.0.0.1:8000/api",
+      "method": "post",
+      "data": "{{input}}"
+    }
+  }]
+}

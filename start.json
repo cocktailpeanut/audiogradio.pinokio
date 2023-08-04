@@ -1,0 +1,19 @@
+{
+  "run": [{
+    "method": "shell.start"
+  }, {
+    "method": "shell.enter",
+    "params": {
+      "message": "{{os.platform() === 'win32' ? 'audiocraft\\\\env\\\\Scripts\\\\activate' : 'source audiocraft/env/bin/activate'}}",
+      "on": [{
+        "event": null,
+        "return": true
+      }]
+    }
+  }, {
+    "method": "shell.enter",
+    "params": {
+      "message": "{{os.platform() === 'win32' ? 'python' : 'python3'}} server.py"
+    }
+  }]
+}
