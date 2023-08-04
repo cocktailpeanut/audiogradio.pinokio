@@ -5,8 +5,8 @@ const exists = (filepath) => {
   return new Promise(r=>fs.access(filepath, fs.constants.F_OK, e => r(!e)))
 }
 module.exports = {
-  title: "Audiocraft",
-  description: "Text to audio, open sourced by Meta",
+  title: "AudioGradio",
+  description: "One click installer for AudioCraft MusicGen and AudioGen Gradio UI",
   icon: "icon.png",
   menu: async (kernel) => {
     let installed = await exists(path.resolve(__dirname, "audiocraft", "env"))
