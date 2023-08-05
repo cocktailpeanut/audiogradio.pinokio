@@ -23,6 +23,16 @@
     "method": "shell.enter",
     "params": {
       "id": "audiogradio.pinokio.conda",
+      "message": "echo %PATH%",
+      "on": [{
+        "event": null,
+        "return": true
+      }]
+    }
+  }, {
+    "method": "shell.enter",
+    "params": {
+      "id": "audiogradio.pinokio.conda",
       "message": "conda install -y 'ffmpeg<5' -c  conda-forge",
       "on": [{
         "event": null,
