@@ -36,6 +36,15 @@
   }, {
     "method": "shell.enter",
     "params": {
+      "message": "conda install -y 'ffmpeg<5' -c  conda-forge",
+      "on": [{
+        "event": null,
+        "return": true
+      }]
+    }
+  }, {
+    "method": "shell.enter",
+    "params": {
       "message": "pip install -r {{(os.cpus() && new RegExp('amd','i').test(os.cpus()[0].model) ? 'requirements-no-xformers.txt' : 'requirements.txt')}} -e .",
       "on": [{
         "event": null,
