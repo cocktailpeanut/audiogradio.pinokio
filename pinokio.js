@@ -6,7 +6,7 @@ const exists = (filepath) => {
 }
 module.exports = {
   title: "AudioGradio",
-  description: "One click installer for AudioCraft MusicGen and AudioGen Gradio UI",
+  description: "One click installer for AudioCraft MusicGen and AudioGen Gradio UI (Requires at least Pinokio v0.0.56)",
   icon: "icon.png",
   menu: async (kernel) => {
     let installed = await exists(path.resolve(__dirname, "audiocraft", "env"))
