@@ -5,41 +5,6 @@
       "message": "git clone https://github.com/cocktailpeanut/audiocraft.git"
     }
   }, {
-    "method": "shell.start",
-    "params": {
-      "id": "audiogradio.pinokio.conda"
-    }
-  }, {
-    "method": "shell.enter",
-    "params": {
-      "id": "audiogradio.pinokio.conda",
-      "message": "{{os.platform() === 'win32' ? 'conda_hook' : 'eval \"$(conda shell.bash hook)\"'}}",
-      "on": [{
-        "event": null,
-        "return": true
-      }]
-    }
-  }, {
-    "method": "shell.enter",
-    "params": {
-      "id": "audiogradio.pinokio.conda",
-      "message": "echo %PATH%",
-      "on": [{
-        "event": null,
-        "return": true
-      }]
-    }
-  }, {
-    "method": "shell.enter",
-    "params": {
-      "id": "audiogradio.pinokio.conda",
-      "message": "conda install -y 'ffmpeg<5' -c  conda-forge",
-      "on": [{
-        "event": null,
-        "return": true
-      }]
-    }
-  }, {
     "method": "shell.run",
     "params": {
       "message": "{{os.platform() === 'win32' ? 'python' : 'python3'}} -m venv env",
@@ -49,6 +14,15 @@
     "method": "shell.start",
     "params": {
       "path": "audiocraft"
+    }
+  }, {
+    "method": "shell.enter",
+    "params": {
+      "message": "conda install -y \"ffmpeg<5\" -c  conda-forge",
+      "on": [{
+        "event": null,
+        "return": true
+      }]
     }
   }, {
     "method": "shell.enter",
@@ -90,3 +64,4 @@
     }
   }]
 }
+
