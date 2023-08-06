@@ -49,7 +49,7 @@
   }, {
     "method": "shell.enter",
     "params": {
-      "message": "{{os.platform() === 'win32' ? 'env\\\\Scripts\\\\activate' : 'source env/bin/activate'}}",
+      "message": "{{os.platform() === 'win32' ? 'env\\\\Scripts\\\\activate' : 'source env/bin/activate'}} env",
       "on": [{
         "event": null,
         "return": true
