@@ -16,14 +16,33 @@
       "path": "audiocraft"
     }
   }, {
+      "method": "shell.enter",
+      "params": {
+        "message": "{{os.platform() === 'win32' ? 'conda_hook' : 'eval \"$(conda shell.bash hook)\"'}}",
+        "on": [{
+          "event": null,
+          "return": true
+        }]
+      }  
+  }, {
     "method": "shell.enter",
     "params": {
-      "message": "conda install -y \"ffmpeg<5\" -c  conda-forge",
+      "message": "conda create -y -p conda_env",
       "on": [{
         "event": null,
         "return": true
       }]
-    }
+    }  
+
+  }, {
+    "method": "shell.enter",
+    "params": {
+      "message": "conda install -y \"ffmpeg<5\" -c  conda-forge -p conda_env",
+      "on": [{
+        "event": null,
+        "return": true
+      }]
+    }  
   }, {
     "method": "shell.enter",
     "params": {

@@ -2,7 +2,10 @@
   "run": [{
     "method": "shell.start",
     "params": {
-      "path": "audiocraft"
+      "path": "audiocraft",
+      "env": {
+        "path": ["{{os.platform() === 'win32' ? path.resolve(cwd, 'audiocraft', 'conda_env', 'Library', 'bin') : path.resolve(cwd, 'audiocraft', 'conda_env', 'bin')}}"]
+      }
     }
   }, {
     "method": "shell.enter",
@@ -39,3 +42,4 @@
     "method": "process.wait"
   }]
 }
+
