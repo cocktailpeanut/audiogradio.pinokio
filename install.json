@@ -13,7 +13,10 @@
   }, {
     "method": "shell.start",
     "params": {
-      "path": "audiocraft"
+      "path": "audiocraft",
+      "env": {
+        "HF_HOME": "../huggingface"
+      }
     }
   }, {
       "method": "shell.enter",

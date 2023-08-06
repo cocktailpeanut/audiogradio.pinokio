@@ -4,6 +4,7 @@
     "params": {
       "path": "audiocraft",
       "env": {
+        "HF_HOME": "../huggingface",
         "path": ["{{os.platform() === 'win32' ? path.resolve(cwd, 'audiocraft', 'conda_env', 'Library', 'bin') : path.resolve(cwd, 'audiocraft', 'conda_env', 'bin')}}"]
       }
     }
