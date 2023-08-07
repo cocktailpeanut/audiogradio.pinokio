@@ -36,7 +36,6 @@
         "return": true
       }]
     }  
-
   }, {
     "method": "shell.enter",
     "params": {
@@ -56,9 +55,18 @@
       }]
     }
   }, {
+      "method": "shell.enter",
+      "params": {
+        "message": "npx --yes torchcraft",
+        "on": [{
+          "event": null,
+          "return": true
+        }]
+      }
+    }, {
     "method": "shell.enter",
     "params": {
-      "message": "pip install 'torch>=2.0'",
+      "message": "pip install -r torchcraft.txt",
       "on": [{
         "event": null,
         "return": true
@@ -67,7 +75,7 @@
   }, {
     "method": "shell.enter",
     "params": {
-      "message": "pip install -r {{(os.cpus() && new RegExp('amd','i').test(os.cpus()[0].model) ? 'requirements-no-xformers.txt' : 'requirements.txt')}} -e .",
+      "message": "pip install -r requirements.txt -e .",
       "on": [{
         "event": null,
         "return": true
@@ -86,4 +94,3 @@
     }
   }]
 }
-
